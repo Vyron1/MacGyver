@@ -15,7 +15,7 @@ class Player:
     def move(self, direction):
 
         if direction == "right":
-            if self.case_x < (nb_sprites - 1):
+            if self.case_x < (width_sprites - 1):
                 if self.map.treated_map[self.case_y][self.case_x + 1] != "#":
                     self.case_x += 1
                     self.x = self.case_x * size_sprite
@@ -33,7 +33,8 @@ class Player:
                     self.y = self.case_y * size_sprite
 
         if direction == "down":
-            if self.case_y < (size_sprite - 1):
+            if self.case_y < (heigth_sprites - 2):
                 if self.map.treated_map[self.case_y + 1][self.case_x] != "#":
                     self.case_y += 1
                     self.y = self.case_y * size_sprite
+

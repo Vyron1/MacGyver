@@ -20,13 +20,16 @@ class Map:
                     if ch != "\n":
                         map_line.append(ch)
                 treated_map.append(map_line)
+            treated_map.append(inventory_line)
             self.treated_map = treated_map
+            print(treated_map)
 
     def show_map(self, window):
         wall = pg.image.load(image_wall).convert()
         floor = pg.image.load(image_floor).convert()
         start = pg.image.load(image_start).convert()
         finish = pg.image.load(image_finish).convert()
+        inventory = pg.image.load(image_inventory).convert()
         guard = pg.image.load(image_guard).convert_alpha()
         object_1 = pg.image.load(image_object_1).convert_alpha()
         object_2 = pg.image.load(image_object_2).convert_alpha()
@@ -55,6 +58,8 @@ class Map:
                 elif ch == "3":
                     window.blit(floor, (x, y))
                     window.blit(object_3, (x, y))
+                elif ch == ".":
+                    window.blit(inventory, (x, y))
 
                 numb_ch += 1
             numb_line += 1

@@ -1,11 +1,12 @@
 # window parameters
-nb_sprites = 15
+width_sprites = 15
+heigth_sprites = 16
 size_sprite = 40
-side_window_width = nb_sprites * size_sprite
-side_window_height = (nb_sprites + 1)* size_sprite
-
-maptxt = "map.txt"
+window_width = width_sprites * size_sprite
+window_height = heigth_sprites * size_sprite
+inventory_line = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]
 image_wall = "ressource/wall.png"
+image_inventory = "ressource/inventory.png"
 image_floor = "ressource/tile.png"
 image_mac = "ressource/MacGyver.png"
 image_guard = "ressource/Gardien.png"

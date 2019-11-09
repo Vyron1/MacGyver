@@ -14,7 +14,7 @@ from player import *
 #####################
 
 pg.init()  # initialization of pygame library
-window = pg.display.set_mode((side_window_width, side_window_height))  # window creation
+window = pg.display.set_mode((window_width, window_height))  # window creation
 map = Map()
 map.generate()
 map.randomize_token()
