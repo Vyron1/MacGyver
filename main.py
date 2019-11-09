@@ -6,6 +6,7 @@ import pygame as pg
 from pygame.locals import *
 from settings import *
 from map import *
+from player import *
 
 
 #####################
@@ -17,6 +18,10 @@ window = pg.display.set_mode((side_window_width, side_window_height))  # window 
 map = Map()
 map.generate()
 map.randomize_token()
+
+# Player creation
+mac = Player(image_mac, map)
+
 game_on = 1
 
 while game_on:
@@ -28,8 +33,19 @@ while game_on:
             if event.key == K_ESCAPE:
                 game_on = 0  # on arrete la boucle
 
+            elif event.key == K_RIGHT:
+                mac.move('right')
+            elif event.key == K_LEFT:
+                mac.move('left')
+            elif event.key == K_UP:
+                mac.move('up')
+            elif event.key == K_DOWN:
+                mac.move('down')
+
+
 
 
     map.show_map(window)
-    # Rafraichissement
+    window.blit(mac.mac, (mac.x, mac.y))
+    # Refresh screen
     pg.display.flip()
