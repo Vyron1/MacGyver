@@ -2,6 +2,7 @@
 #  Imports  #
 #############
 import pygame as pg
+import random
 from settings import *
 
 class Map:
@@ -57,3 +58,22 @@ class Map:
 
                 numb_ch += 1
             numb_line += 1
+
+    def randomize_token(self):
+        obj_x = []
+        obj_y = []
+        numb_line = 0
+        for line in self.treated_map:
+            numb_ch = 0
+            for ch in line:
+                if ch == " ":
+                    obj_x.append(numb_ch)
+                    obj_y.append(numb_line)
+                numb_ch += 1
+            numb_line += 1
+            # choose a position at random 3 times
+        for i in range(3):
+            pos = random.randint(0, len(obj_x) - 1)
+            self.treated_map[obj_y[pos]][obj_x[pos]] = str(i+1)
+            obj_y.pop(pos)
+            obj_x.pop(pos)
