@@ -1,3 +1,5 @@
+
+
 # window parameters
 width_sprites = 15
 heigth_sprites = 16

@@ -17,7 +17,8 @@ pg.init()  # initialization of pygame library
 window = pg.display.set_mode((window_width, window_height))  # window creation
 map = Map()
 map.generate()
-map.randomize_token()
+map.randomize_object()
+
 
 # Player creation
 mac = Player(image_mac, map)
@@ -32,7 +33,6 @@ while game_on:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 game_on = 0  # on arrete la boucle
-
             elif event.key == K_RIGHT:
                 mac.move('right')
             elif event.key == K_LEFT:
@@ -42,9 +42,7 @@ while game_on:
             elif event.key == K_DOWN:
                 mac.move('down')
 
-
-
-
+    mac.get_object()
     map.show_map(window)
     window.blit(mac.mac, (mac.x, mac.y))
     # Refresh screen
