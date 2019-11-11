@@ -33,6 +33,8 @@ while game_on:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 game_on = 0  # on arrete la boucle
+            elif event.type == K_F1:
+                game_on = 1
             elif event.key == K_RIGHT:
                 mac.move('right')
             elif event.key == K_LEFT:
@@ -47,3 +49,12 @@ while game_on:
     window.blit(mac.mac, (mac.x, mac.y))
     # Refresh screen
     pg.display.flip()
+
+    if map.treated_map[mac.case_y][mac.case_x] == "f" and mac.nb_objects == 3:
+        win = pg.image.load(image_win).convert_alpha()
+        window.blit(win, (0, 0))
+        pg.display.flip()
+    elif map.treated_map[mac.case_y][mac.case_x] == "f" and mac.nb_objects < 3:
+        lose = pg.image.load(image_lose).convert_alpha()
+        window.blit(lose, (0, 0))
+        pg.display.flip()
