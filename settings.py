@@ -1,5 +1,3 @@
-
-
 # window parameters
 width_sprites = 15
 heigth_sprites = 16
@@ -7,6 +5,7 @@ size_sprite = 40
 window_width = width_sprites * size_sprite
 window_height = heigth_sprites * size_sprite
 inventory_line = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]
+image_home = "ressource/home.png"
 image_wall = "ressource/wall.png"
 image_inventory = "ressource/inventory.png"
 image_floor = "ressource/tile.png"
