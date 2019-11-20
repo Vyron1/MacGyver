@@ -19,7 +19,7 @@ class Map:
         self.object_1 = pg.image.load(image_object_1).convert_alpha()
         self.object_2 = pg.image.load(image_object_2).convert_alpha()
         self.object_3 = pg.image.load(image_object_3).convert_alpha()
-        self.obect_4 = pg.image.load(image_object_4).convert_alpha()
+        self.object_4 = pg.image.load(image_object_4).convert_alpha()
 
     def generate(self):
         with open("map.txt", "r") as map:
@@ -30,7 +30,7 @@ class Map:
                     if ch != "\n":
                         map_line.append(ch)
                 treated_map.append(map_line)
-            treated_map.append(inventory_line)
+            treated_map.append(inventory_line[:]) # add all the items inside inventory line instead of the list itself
             self.treated_map = treated_map
 
 
@@ -62,7 +62,7 @@ class Map:
                 elif ch == ".":
                     window.blit(self.inventory, (x, y))
                 elif ch == "4":
-                    window.blit(self.obect_4, (x, y))
+                    window.blit(self.object_4, (x, y))
 
                 numb_ch += 1
             numb_line += 1
