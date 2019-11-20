@@ -16,7 +16,8 @@ from player import *
 pg.init()  # initialization of pygame library
 window = pg.display.set_mode((window_width, window_height))  # window creation
 pg.display.set_caption("MacGyver")
-
+icon = pg.image.load(image_mac)
+pg.display.set_icon(icon)
 
 map = Map()
 mac = Player(image_mac, map)
