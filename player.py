@@ -1,9 +1,11 @@
+"""Player class for MacGyver game"""
+
 import pygame as pg
 from settings import *
 
 
 class Player:
-
+    """This class creates the player and the directions he can move"""
     def __init__(self, mac, map):
         self.mac = pg.image.load(mac).convert_alpha()
         self.case_x = 0
@@ -14,7 +16,8 @@ class Player:
         self.nb_objects = 0
 
     def move(self, direction):
-
+        """Method to allow the player to move and verify collisions
+        with walls and the edge of the screen"""
         if direction == "right":
             if self.case_x < (width_sprites - 1):
                 if self.map.treated_map[self.case_y][self.case_x + 1] != "#":
@@ -40,6 +43,8 @@ class Player:
                     self.y = self.case_y * size_sprite
 
     def get_object(self):
+        """Method to allow the player to pick up the objects and store them in
+        the inventory, in the end automatically crafts the last object """
         if self.map.treated_map[self.case_y][self.case_x] == "1":
             self.map.treated_map[self.case_y][self.case_x] = " "
             self.map.treated_map[len(self.map.treated_map) - 1][self.nb_objects] = "1"
