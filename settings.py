@@ -1,5 +1,3 @@
-"""Constants file for MacGyver game"""
-
 # window parameters
 width_sprites = 15
 heigth_sprites = 16

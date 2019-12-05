@@ -1,6 +1,6 @@
 import pygame as pg
 from settings import *
-
+from map import *
 
 class Player:
 
