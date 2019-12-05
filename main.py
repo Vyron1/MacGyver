@@ -104,7 +104,7 @@ while game_on:
         pg.display.flip()
 
         # if player is in the end of the map and has 3 objects on inventory
-        # starts the win loop
+        # starts the won loop
         if map.treated_map[mac.case_y][mac.case_x] == "f" and mac.nb_objects == 3:
             won = 1
             win = pg.image.load(image_win).convert_alpha()
