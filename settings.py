@@ -7,6 +7,8 @@ size_sprite = 40
 window_width = width_sprites * size_sprite
 window_height = heigth_sprites * size_sprite
 inventory_line = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]
+
+# Game images
 image_home = "resources/home.png"
 image_wall = "resources/wall.png"
 image_inventory = "resources/inventory.png"
