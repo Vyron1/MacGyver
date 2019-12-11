@@ -6,7 +6,6 @@ heigth_sprites = 16
 size_sprite = 40
 window_width = width_sprites * size_sprite
 window_height = heigth_sprites * size_sprite
-inventory_line = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]
 
 # Game images
 image_home = "resources/home.png"

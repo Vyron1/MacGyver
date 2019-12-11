@@ -9,11 +9,13 @@ class Map:
     """This class creates the map level"""
     def __init__(self):
         self.treated_map = 0
+        # loads the images
         self.wall = pg.image.load(image_wall).convert()
         self.floor = pg.image.load(image_floor).convert()
         self.start = pg.image.load(image_start).convert()
         self.finish = pg.image.load(image_finish).convert()
         self.inventory = pg.image.load(image_inventory).convert()
+        # only the guard image as transparency
         self.guard = pg.image.load(image_guard).convert_alpha()
         self.object_1 = pg.image.load(image_object_1).convert()
         self.object_2 = pg.image.load(image_object_2).convert()
@@ -26,13 +28,16 @@ class Map:
         stocking it on a list and adding th inventory line at the end"""
         with open("map.txt", "r") as map:
             self.treated_map = []
+            inventory_line = []
             for line in map:
                 map_line = []
                 for ch in line:
                     if ch != "\n":
                         map_line.append(ch)
                 self.treated_map.append(map_line)
-            self.treated_map.append(inventory_line[:])
+            for ch in range(len(self.treated_map[-1])):
+                inventory_line.append(".")
+            self.treated_map.append(inventory_line)
 
 
     def show_map(self, window):
@@ -41,9 +46,11 @@ class Map:
         for line in self.treated_map:
             numb_ch = 0
             for ch in line:
+                # converts from cases to pixels
                 x = numb_ch * size_sprite
                 y = numb_line * size_sprite
                 if ch == "#":
+                    # if the symbol on map is a # will put a wall image on its place
                     window.blit(self.wall, (x, y))
                 elif ch == " ":
                     window.blit(self.floor, (x, y))
