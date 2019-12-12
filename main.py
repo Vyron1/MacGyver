@@ -1,3 +1,4 @@
+#!/env/Scripts/python.exe
 # -*- coding: Utf-8 -*
 
 """
@@ -8,12 +9,19 @@ craft a syringe to put the Guard to sleep.
 Script Python
 Files : main.py, settings.py, map.py, player.py, map.txt, resources
 """
+#############
+#  Imports  #
+#############
 
 import pygame as pg
 from pygame.locals import *
 from settings import *
 from map import Map
 from player import Player
+
+###########################
+#  Screen initialization  #
+###########################
 
 # initialization of pygame library
 pg.init()
@@ -27,12 +35,18 @@ pg.display.set_icon(icon)
 map = Map()
 # creating the player
 mac = Player(image_mac, map)
-# Pygame function to keep the key pressed with (delay, interval)
+# Pygame function to keep registering the
+# pressed key with (delay, interval)
 pg.key.set_repeat(200, 150)
 
-# Main loop
+###############
+#  Main loop  #
+###############
+
 game_on = 1
 while game_on:
+    # game loop speed limiter
+    pg.time.Clock().tick(30)
     # Loading and adding the home screen image to the game screen
     home_screen = pg.image.load(image_home)
     window.blit(home_screen, (0, 0))
@@ -47,8 +61,8 @@ while game_on:
 
         # Limiting the loop to 30 fps
         pg.time.Clock().tick(30)
-        # if the player quits or press escape
-        # we set the variables to 0 to stop the loop
+        # if the player quits or press escape we set the
+        # variables to 0 to stop the loop and quit the game
         for event in pg.event.get():
             if event.type == QUIT:
                 game_on = 0
@@ -59,6 +73,7 @@ while game_on:
                     game_on = 0
                     continue_home = 0
                     continue_game = 0
+
                 # If F1 is pressed we start the game
                 elif event.key == K_F1:
                     map.generate()
@@ -71,10 +86,15 @@ while game_on:
                     mac.x = 0
                     mac.y = 0
 
-    # Game loop
+    ###############
+    #  Game loop  #
+    ###############
+
     while continue_game:
         pg.time.Clock().tick(30)
+        # when game starts we render the map
         map.show_map(window)
+        # when game starts we start the get_object function
         mac.get_object()
 
         for event in pg.event.get():
@@ -124,7 +144,7 @@ while game_on:
                             continue_game = 0
                             won = 0
 
-        # if player is in the end of the map but does'nt have all objects on inventory
+        # if player is in the end of the map but does'nt have 3 objects on inventory
         # starts the lost loop
         if map.treated_map[mac.case_y][mac.case_x] == "f" and mac.nb_objects < 3:
             lost = 1
