@@ -56,7 +56,10 @@ while game_on:
     # setting the home loop to 1 on each loop
     continue_home = 1
 
-    # Home loop
+    ###############
+    #  Home loop  #
+    ###############
+
     while continue_home:
 
         # Limiting the loop to 30 fps
