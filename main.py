@@ -33,8 +33,6 @@ icon = pg.image.load(image_mac)
 pg.display.set_icon(icon)
 
 map = Map()
-# creating the player
-mac = Player(image_mac, map)
 # Pygame function to keep registering the
 # pressed key with (delay, interval)
 pg.key.set_repeat(200, 150)
@@ -79,7 +77,11 @@ while game_on:
 
                 # If F1 is pressed we start the game
                 elif event.key == K_F1:
+                    # create the player
+                    mac = Player(image_mac, map)
+                    # generate the map
                     map.generate()
+                    # we randomize the objects position
                     map.randomize_object()
                     continue_home = 0
                     continue_game = 1
