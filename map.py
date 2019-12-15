@@ -122,6 +122,6 @@ class Map:
             # an object with each loop being a different object
             self.treated_map[obj_y[pos]][obj_x[pos]] = str(i+1)
             # in the end we remove the used number from the free spaces list
-            # that way we wont have 2 object in the same space
+            # that way we wont have 2 objects in the same space
             obj_y.pop(pos)
             obj_x.pop(pos)
